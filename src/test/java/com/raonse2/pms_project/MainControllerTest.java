@@ -1,6 +1,6 @@
-package com.raonse2.pms;
+package com.raonse2.pms_project;
 
-import com.raonse2.pms.controller.MainController;
+import com.raonse2.pms_project.controller.MainController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
