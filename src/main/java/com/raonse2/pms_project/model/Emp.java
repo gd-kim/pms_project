@@ -2,6 +2,7 @@ package com.raonse2.pms_project.model;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class Emp {
     private int sal;
     private int comm;
     private int deptno;
+
 
 }
 

@@ -13,7 +13,7 @@ public class PmsProjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(PmsProjectApplication.class, args);
     }
-    @Bean
+    /*@Bean
     public CommandLineRunner Member(EmpRepository repository) {
         return (args) -> {
             //엔티티 생성
@@ -44,5 +44,5 @@ public class PmsProjectApplication {
                 System.out.println("회원 명 : {}" + m.getEmpno());
             }
         };
-    }
+    }*/
 }
