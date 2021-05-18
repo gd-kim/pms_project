@@ -9,7 +9,7 @@ public class Engineer_InfoTestController {
 
     @Test
     public void Engineer_InfoSaveRequestDto_test() {
-        final Engineer_Info engineer_info = Engineer_Info.builder() // 빌더 이름으로 명확하게 그 의도를 드러 내고 있습니다.
+        final Engineer_Info engineer_info = Engineer_Info.builder()
                 .emp_name("홍길동")
                 .mail_address("honggildong@raoncorp.com")
                 .create_emp_no(1)

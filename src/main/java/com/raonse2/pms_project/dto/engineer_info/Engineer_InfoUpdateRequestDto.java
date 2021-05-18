@@ -1,4 +1,4 @@
-package com.raonse2.pms_project.dto;
+package com.raonse2.pms_project.dto.engineer_info;
 
 import lombok.Builder;
 import lombok.Getter;
