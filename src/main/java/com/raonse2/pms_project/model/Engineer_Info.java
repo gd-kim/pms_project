@@ -13,7 +13,7 @@ public class Engineer_Info extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ENGINEER_EMPNO")
-    @SequenceGenerator(name = "ENGINEER_EMPNO_GENERATOR", sequenceName = "SEQ_ENGINEER_EMPNO", allocationSize = 1)
+    @SequenceGenerator(name = "SEQ_ENGINEER_EMPNO", sequenceName = "SEQ_ENGINEER_EMPNO", allocationSize = 1)
     private int empno;
     private String emp_name;
     private String mail_address;
