@@ -38,7 +38,7 @@ public class MainController {
     }
 
     @RequestMapping("/pjt-detail/{pjtcode}")
-    public ModelAndView pjtDetail(ModelAndView mv, @PathVariable("pjtcode") String pjtcode){
+    public ModelAndView pjtdetail(ModelAndView mv, @PathVariable("pjtcode") String pjtcode){
         System.out.println("pjtcode:::: "+ pjtcode);
 
         mv.setViewName("detail");
