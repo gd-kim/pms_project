@@ -1,4 +1,4 @@
-var main = {
+const main = {
     trClick: function(selector){
         window.location = "/pjt-detail/"+selector;
 
