@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -21,11 +22,9 @@ public class Project_viewService {
 
 
     @Transactional(readOnly = true)
-    public List<Project_viewTable> findByAll() {
+    public List<Project_viewResponseDto> findByAll() {
 
-        List<Project_viewTable> list = project_viewRepository.findAll();
-
-        return list;
+        return project_viewRepository.findAll().stream().map(Project_viewResponseDto::new).collect(Collectors.toList());
     }
 
 }

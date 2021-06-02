@@ -1,5 +1,6 @@
 package com.raonse2.pms_project.controller;
 
+import com.raonse2.pms_project.dto.project_view.Project_viewResponseDto;
 import com.raonse2.pms_project.model.Project_viewTable;
 import com.raonse2.pms_project.service.Engineer_InfoService;
 import com.raonse2.pms_project.service.Project_viewService;
@@ -32,7 +33,7 @@ public class MainController {
     @RequestMapping("/tables")
     public ModelAndView tables(ModelAndView mv){
         mv.setViewName("tables");
-        List<Project_viewTable> pjList = project_viewService.findByAll();
+        List<Project_viewResponseDto> pjList = project_viewService.findByAll();
         mv.getModelMap().addAttribute("pjList", pjList);
         return mv;
     }

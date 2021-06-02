@@ -8,5 +8,7 @@ import java.util.Optional;
 
 public interface Engineer_InfoRepository extends JpaRepository<Engineer_Info, Integer> {
     Optional<Engineer_Info> findByEmpno(int empno);
+
+
 }
 
