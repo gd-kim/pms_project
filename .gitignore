@@ -39,3 +39,5 @@ out/
 
 #github
 
+/src/main/resources/templates/node_modules/
+/src/main/resources/application.properties
