@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>전송 이력 조회</title>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
@@ -31,7 +31,7 @@
 
 <button>조회</button>
 <br><br>
-<table class="table">
+<table class="mailRecordTable">
     <thead>
     <tr>
         <th>번호</th>
@@ -42,17 +42,19 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td>샘플작성자</td>
-        <td>샘플제목</td>
-        <td>샘플솔루션</td>
-        <td>210514</td>
+    <tr th:each="mailrecord : ${miList}">
+        <td th:text="${mailrecord.getMail_no}"></td>
+        <td th:text="${mailrecord.getEmp_name}"></td>
+        <td th:text="${mailrecord.getMail_title}"></td>
+        <td th:text="${mailrecord.getSolution_name}"></td>
+        <td th:text="${mailrecord.getSend_date}"></td>
     </tr>
     </tbody>
 </table>
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/js/lookup.js"></script>
 <script src="/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
