@@ -63,11 +63,15 @@
                 <span>솔루션 정보</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/home">
+            <a class="nav-link" href="/mail">
                 <i class="fas fa-fw fa-mail-bulk"></i>
                 <span>메일 배포</span></a>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" href="/lookup">
+                <i class="fas fa-fw fa-mail-bulk"></i>
+                <span>메일 전송 기록</span></a>
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -142,7 +146,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-500">메일 배포 시스템</h1>
+                <h1 class="h3 mb-2 text-gray-500">메일 배포</h1>
                 <!-- DataTales Example -->
                 <div class="row">
                     <div class="col-lg-8">
@@ -151,24 +155,24 @@
                             <div class="card-body">
                                 <form>
                                     <div class="mb-3">
-                                        <label class="small mb-1">발송자 이름</label>
-                                        <input class="form-control" id="engineer_name" type="text" placeholder="발송하시는 분의 이름을 입력하세요.">
+                                        <label class="small mb-1">작성자 이름</label>
+                                        <input class="form-control" id="engineer_name" type="text" placeholder="작성자의 이름을 입력하세요.">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="small mb-1">수신 메일 주소</label>
-                                        <input class="form-control" id="address" type="text" placeholder="고객사 메일 주소를 입력하세요." readonly>
-                                    </div>
-                                    <div class="mb-4">
                                         <label class="small mb-1">받는 사람</label>
                                         <input class="form-control" id="btn-select" type="button" value="솔루션 & 고객사 담당자 선택">
                                     </div>
-                                    <div class="mb-4">
-                                        <label class="small mb-3">Selected Solutions</label>
-                                        <div class="mb-auto" id="product"></div>
+                                    <div class="mb-3">
+                                        <label class="small mb-1">수신 메일 주소</label>
+                                        <input class="form-control" id="address" type="text" placeholder="선택한 고객사 메일 주소가 입력됩니다." readonly>
                                     </div>
-                                    <div class="mb-5">
-                                        <label class="small mb-3">Selected Customer</label>
-                                        <div class="mb-auto" id="check"></div>
+                                    <div class="card mb-3">
+                                        <div class="card-header">Selected Solutions</div>
+                                        <div class="card-body mb-auto" id="product"></div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-header">Selected Customer</div>
+                                        <div class="card-body mb-auto" id="check"></div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="small mb-1">메일 제목</label>

@@ -18,10 +18,6 @@ public class ViewController {
     @Autowired
     Mail_InfoService mailInfoService;
 
-    @GetMapping("/home")
-    public String toHome(){
-        return "home";
-    }
     @GetMapping("/mail")
     public String toMail(){
         return "mail";
