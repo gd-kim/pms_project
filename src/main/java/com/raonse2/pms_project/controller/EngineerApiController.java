@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1.0/engineer-info")
-public class Engineer_InfoController {
+public class EngineerApiController {
 
     @Autowired
     Engineer_InfoService engineer_infoService;
@@ -28,8 +28,8 @@ public class Engineer_InfoController {
      * @return Engineer_infoResponseDto
      * @author gdkim
      */
-    @GetMapping("/1/{empno}")
-    public Engineer_InfoResponseDto findByEmpno (@PathVariable("empno") int empno){
+    @GetMapping("/1/empno")
+    public Engineer_InfoResponseDto findByEmpno (@RequestParam (required=true,defaultValue="1") int empno){
         return engineer_infoService.findByEmpno(empno);
     }
 
@@ -48,7 +48,7 @@ public class Engineer_InfoController {
      * @param requestDto
      * @author gdkim
      */
-    @PostMapping("/3/engineer-info")
+    @GetMapping("/3/engineer-info")
     public void save(@RequestBody Engineer_InfoSaveRequestDto requestDto){
         engineer_infoService.save(requestDto);
     }

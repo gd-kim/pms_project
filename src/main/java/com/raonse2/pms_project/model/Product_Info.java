@@ -31,7 +31,7 @@ public class Product_Info{
     private String productOptions;
 
     @Builder // 롬복, 빌더 패턴 클래스 생성
-    public Product_Info(String productName, int createEmpNo, int updateEmpNo,String productStandard, String productOptions){
+    public Product_Info(String productName, int createEmpNo, int updateEmpNo, String productStandard, String productOptions){
         this.productName= productName;
         this.createEmpNo= createEmpNo;
         this.updateEmpNo= updateEmpNo;

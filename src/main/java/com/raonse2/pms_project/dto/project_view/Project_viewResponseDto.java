@@ -18,19 +18,24 @@ public class Project_viewResponseDto {
     private String project_code;
     private String project_name;
     private String customer_name;
+    private int customer_no;
     private String sales_name;
+    private int salesno;
     private Date start_date;
     private Date end_date;
     private String emp_name;
-
+    private int empno;
 
     public Project_viewResponseDto(Project_viewTable entity){
         this.project_code = entity.getProject_code();
         this.project_name = entity.getProject_name();
         this.customer_name = entity.getCustomer_name();
+        this.customer_no = entity.getCustomer_no();
         this.sales_name = entity.getSales_name();
+        this.salesno = entity.getSalesno();
         this.start_date = entity.getStart_date();
         this.end_date = entity.getEnd_date();
         this.emp_name = entity.getEmp_name();
+        this.empno = entity.getEmpno();
     }
 }

@@ -191,9 +191,17 @@
 <!--                                         </tr> -->
 <!--                                     </tfoot> -->
                                     <tbody>
-                                        <tr th:onclick="main.trClick(this.getAttribute('data-pjtcode'))"
+                                        <tr th:onclick="main.trClick(this.getAttribute('data-pjtcode')
+                                        ,this.getAttribute('data-customer_no')
+                                        ,this.getAttribute('data-empno')
+                                        ,this.getAttribute('data-customer_name')
+                                        ,this.getAttribute('data-projectname'))"
                                             th:each="pjt : ${pjList}"
-                                            th:data-pjtcode="${pjt.getProject_code()}">
+                                            th:data-pjtcode="${pjt.getProject_code()}"
+                                            th:data-customer_no="${pjt.getCustomer_no()}"
+                                            th:data-customer_name="${pjt.getCustomer_name()}"
+                                            th:data-empno="${pjt.getEmpno()}"
+                                            th:data-projectname="${pjt.getProject_name()}">
                                             <td th:text="${pjt.getProject_code()}"></td>
                                             <td th:text="${pjt.getProject_name()}"></td>
                                             <td th:text="${pjt.getCustomer_name()}"></td>
@@ -210,7 +218,98 @@
 
                 </div>
                 <!-- /.container-fluid -->
+                <div id="detail" name="detail" style="display:none" class="container-fluid">
 
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Change password card-->
+                        <div class="card mb-4">
+                            <div class="card-header">프로젝트 정보</div>
+                            <div class="card-body">
+                                <form>
+                                    <!-- Form Group (current password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="pjtcode">프로젝트 코드</label>
+                                        <input value="PJ2000406" class="form-control" id="pjtcode" type="text" readonly="">
+                                    </div>
+                                    <div class="mb-3" style="display:none">
+                                        <input class="form-control" id="customer_no">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="customer_name">수요처</label>
+                                        <input class="form-control" id="customer_name" type="text" placeholder="수요처를 입력하세요..">
+                                    </div>
+                                    <!-- Form Group (confirm password)-->
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="project_name">프로젝트 명</label>
+                                        <input class="form-control" id="project_name" type="text" placeholder="프로젝트 명을 입력하세요..">
+                                    </div>
+                                    <a href="#" class="btn btn-success btn-circle">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Security preferences card-->
+                        <div class="card mb-4">
+                            <div class="card-header">솔루션 [품명]</div>
+                            <div class="card-body">
+                                <!-- Account privacy optinos-->
+                                <form id="solutionList">
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <!-- Two factor authentication card-->
+                        <div class="card mb-4">
+                            <div class="card-header">고객사 담당자 정보</div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="customer_emp_name">고객사 담당자</label>
+                                        <input class="form-control" id="customer_emp_name" type="text" placeholder="고객사 담당자 이름 입력.." value="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="mail">E-mail</label>
+                                        <input class="form-control" id="mail" type="email" placeholder="고객사 담당자 메일 입력.." value="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="pnumber">Phone Number</label>
+                                        <input class="form-control" id="pnumber" type="tel" placeholder="고객사 담당자 연락처 입력.." value="545-123-4567">
+                                    </div>
+                                    <a href="#" class="btn btn-success btn-circle">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Delete account card-->
+                        <div class="card mb-4">
+                            <div class="card-header">담당 엔지니어</div>
+                            <div class="card-body">
+                                <div class="mb-3" style="display:none">
+                                    <label class="small mb-1" for="empno"></label>
+                                    <input class="form-control" id="empno" type="text" placeholder="" value="">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="emp_name">이름</label>
+                                    <input class="form-control" id="emp_name" type="text" placeholder="" value="">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="mail_address">이메일</label>
+                                    <input class="form-control" id="mail_address" type="text" placeholder="" value="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
             <!-- End of Main Content -->
 

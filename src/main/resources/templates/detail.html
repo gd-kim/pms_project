@@ -183,33 +183,14 @@
                         </div>
                         <!-- Security preferences card-->
                         <div class="card mb-4">
-                            <div class="card-header">솔루션 품명</div>
+                            <div class="card-header">솔루션 [품명]</div>
                             <div class="card-body">
                                 <!-- Account privacy optinos-->
-                                <h5 class="mb-1">Account Privacy</h5>
-                                <p class="small text-muted">By setting your account to private, your profile information and posts will not be visible to users outside of your user groups.</p>
                                 <form>
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="radioPrivacy1" type="radio" name="radioPrivacy" checked="">
-                                        <label class="form-check-label" for="radioPrivacy1">Public (posts are available to all users)</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="radioPrivacy2" type="radio" name="radioPrivacy">
-                                        <label class="form-check-label" for="radioPrivacy2">Private (posts are available to only users in your groups)</label>
-                                    </div>
-                                </form>
-                                <hr class="my-4">
-                                <!-- Data sharing options-->
-                                <h5 class="mb-1">Data Sharing</h5>
-                                <p class="small text-muted">Sharing usage data can help us to improve our products and better serve our users as they navigation through our application. When you agree to share usage data with us, crash reports and usage analytics will be automatically sent to our development team for investigation.</p>
-                                <form>
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="radioUsage1" type="radio" name="radioUsage" checked="">
-                                        <label class="form-check-label" for="radioUsage1">Yes, share data and crash reports with app developers</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="radioUsage2" type="radio" name="radioUsage">
-                                        <label class="form-check-label" for="radioUsage2">No, limit my data sharing with app developers</label>
+                                    <div class="form-check"
+                                    th:each="pfs : ${product_infos}">
+                                        <input th:id="${pfs.getProductNo()}" th:name="${pfs.getProductNo()}" class="form-check-input" type="radio" checked="">
+                                        <label class="form-check-label" th:for="${pfs.getProductNo()}" th:text="${pfs.getProductName()}+ ' ['+ ${pfs.getProductStandard()}+ ']'" ></label>
                                     </div>
                                 </form>
                             </div>
@@ -254,6 +235,40 @@
             <!-- /.container-fluid -->
 
         </div>
+        <div class="col-lg-8" style="display:block">
+            <!-- Change password card-->
+            <div class="card mb-4">
+                <div class="card-header">프로젝트 정보</div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Group (current password)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="pjtcode">프로젝트 코드</label>
+                            <input value="PJ2000406" class="form-control" id="pjtcode" type="text" readonly="">
+                        </div>
+                        <!-- Form Group (new password)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="customer_name">수요처</label>
+                            <input class="form-control" id="customer_name" type="text" placeholder="수요처를 입력하세요..">
+                        </div>
+                        <!-- Form Group (confirm password)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="pjtname">프로젝트 명</label>
+                            <input class="form-control" id="pjtname" type="text" placeholder="프로젝트 명을 입력하세요..">
+                        </div>
+                        <a href="#" class="btn btn-success btn-circle">
+                            <i class="fas fa-check"></i>
+                        </a>
+                        <a href="#" class="btn btn-danger btn-circle">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </form>
+                </div>
+            </div>
+            <!-- Security preferences card-->
+
+
+        </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
@@ -293,6 +308,7 @@
 
 <!-- Page level custom scripts -->
 <script src="/js/demo/datatables-demo.js"></script>
+<script src="/js/jquery-1.6.3.js"></script>
 <script src="/js/main.js"></script>
 
 s
