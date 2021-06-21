@@ -48,7 +48,7 @@ public class EngineerApiController {
      * @param requestDto
      * @author gdkim
      */
-    @GetMapping("/3/engineer-info")
+    @PostMapping("/3/engineer-info")
     public void save(@RequestBody Engineer_InfoSaveRequestDto requestDto){
         engineer_infoService.save(requestDto);
     }

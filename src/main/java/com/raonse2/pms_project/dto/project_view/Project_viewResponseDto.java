@@ -21,8 +21,8 @@ public class Project_viewResponseDto {
     private int customer_no;
     private String sales_name;
     private int salesno;
-    private Date start_date;
-    private Date end_date;
+    private String start_date;
+    private String end_date;
     private String emp_name;
     private int empno;
 
