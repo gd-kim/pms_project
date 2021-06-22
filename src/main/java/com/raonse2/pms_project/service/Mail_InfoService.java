@@ -1,6 +1,6 @@
 package com.raonse2.pms_project.service;
 
-import com.raonse2.pms_project.dto.project_view.Mail_InfoResponseDto;
+import com.raonse2.pms_project.dto.mail_info.Mail_InfoResponseDto;
 import com.raonse2.pms_project.repository.Mail_InfoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

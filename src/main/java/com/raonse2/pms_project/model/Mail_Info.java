@@ -15,6 +15,7 @@ public class Mail_Info {
     private String mail_no;
     private String emp_name;
     private String mail_title;
+    private String content;
     private String mail_product_name;
     private String send_date;
 }
