@@ -54,6 +54,20 @@ const main = {
                 $('#mail_address').val(data.mail_address);
             }
         });
+
+        /**
+         * 고객사 담당자 정보 가져오기
+         */
+        $.ajax({
+            url: '/api/v1.0/customer-emp-info/1/customerNo',
+            type: 'GET',
+            data : 'customerNo='+customer_no,
+            success : function(data){
+                $('#customer_emp_name').val(data[0].customer_emp_name);
+                $('#mail').val(data[0].customer_mail_address);
+                $('#pnumber').val(data[0].customer_emp_phone);
+            }
+        });
     },
 
     createProject: function () {

@@ -38,8 +38,8 @@ dependencies {
     testCompileOnly 'junit:junit:4.12'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.1.0'
     implementation 'junit:junit:4.12'
-    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.1.2.RELEASE'
-    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.1.2.RELEASE'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.1.2.RELEASE'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.1.2.RELEASE'
 }
 //querydsl 추가 시작
 def querydslDir = "src/main/generated/querydsl"
