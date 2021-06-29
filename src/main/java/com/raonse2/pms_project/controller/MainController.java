@@ -1,10 +1,10 @@
 package com.raonse2.pms_project.controller;
 
+import com.raonse2.pms_project.dto.customer_emp_info.Customer_emp_infoResponseDto;
 import com.raonse2.pms_project.dto.product_info.Product_InfoResponseDto;
 import com.raonse2.pms_project.dto.project_view.Project_viewResponseDto;
-import com.raonse2.pms_project.model.Product_Info;
-import com.raonse2.pms_project.model.Project_viewTable;
 import com.raonse2.pms_project.querydslRepository.Product_InfoRepositorySupport;
+import com.raonse2.pms_project.service.Customer_Emp_InfoService;
 import com.raonse2.pms_project.service.Engineer_InfoService;
 import com.raonse2.pms_project.service.Project_viewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +27,8 @@ public class MainController {
     @Autowired
     Product_InfoRepositorySupport productInfoRepositorySupport;
 
+    @Autowired
+    Customer_Emp_InfoService customer_emp_infoService;
 
     @RequestMapping("/hello")
     public String hello(Model model) {
@@ -62,6 +64,11 @@ public class MainController {
         return mv;
     }
 
-
-
+    @RequestMapping("/customerEmp")
+    public ModelAndView customerEmp(ModelAndView mv){
+        mv.setViewName("customerEmp");
+        List<Customer_emp_infoResponseDto> customerEmpList = customer_emp_infoService.findByAll();
+        mv.getModelMap().addAttribute("customerEmpList", customerEmpList);
+        return mv;
+    }
 }
