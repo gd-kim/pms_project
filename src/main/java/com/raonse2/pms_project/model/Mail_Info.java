@@ -18,4 +18,16 @@ public class Mail_Info {
     private String content;
     private String mail_product_name;
     private String send_date;
+    private String mail_address;
+
+    @Builder
+    public Mail_Info(String mail_no, String emp_name, String mail_title, String content, String mail_product_name, String send_date, String mail_address) {
+        this.mail_no = mail_no;
+        this.emp_name = emp_name;
+        this.mail_title = mail_title;
+        this.content = content;
+        this.mail_product_name = mail_product_name;
+        this.send_date = send_date;
+        this.mail_address = mail_address;
+    }
 }

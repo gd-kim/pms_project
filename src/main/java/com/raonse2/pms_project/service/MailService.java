@@ -2,11 +2,15 @@ package com.raonse2.pms_project.service;
 
 
 import com.raonse2.pms_project.dto.MailDto;
+import com.raonse2.pms_project.dto.mail_info.Mail_InfoSaveRequestDto;
+import com.raonse2.pms_project.repository.Mail_InfoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Service
 @AllArgsConstructor

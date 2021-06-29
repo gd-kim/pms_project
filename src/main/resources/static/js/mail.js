@@ -22,9 +22,26 @@ const main = {
             data: JSON.stringify(data)
         }).done(function () {
             alert('메일 전송 완료')
-        }).fail(function (error) {
-            alert(JSON.stringify(error))
-        });
+            var date = new Date();
+            var send_date = date.toLocaleString();
+            const db_data = {
+                enginner_name: $('#engineer_name').val(),
+                address: $('#address').val(),
+                product: $('#product').val(),
+                customer: $('#check').val(),
+                title: $('#title').val(),
+                content: $('#message').val(),
+                date: send_date
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/mail-save',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            })}.fail(function (error) {
+                alert(JSON.stringify(error))
+            }))
     },
     openSelect: function () {
         // window.open('http://localhost:8080/select','selectView','width=680, height=580, top=0')
@@ -33,7 +50,6 @@ const main = {
         // multipleScreenPopup('https://google.com', '_blank', 500, 500);
         // move from the left and from the top
         multipleScreenPopup('http://localhost:8080/select', 'selectView', 680, 580, false, 0, 0);
-
     }
 };
 main.init();
