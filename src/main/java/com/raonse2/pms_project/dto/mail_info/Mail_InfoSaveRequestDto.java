@@ -4,7 +4,6 @@ import com.raonse2.pms_project.model.Mail_Info;
 import lombok.Builder;
 
 public class Mail_InfoSaveRequestDto {
-    private String mail_no;
     private String emp_name;
     private String mail_title;
     private String content;
@@ -13,8 +12,7 @@ public class Mail_InfoSaveRequestDto {
     private String mail_address;
 
     @Builder
-    public Mail_InfoSaveRequestDto(String mail_no, String emp_name, String mail_title, String content, String mail_product_name, String send_date, String mail_address) {
-        this.mail_no = mail_no;
+    public Mail_InfoSaveRequestDto(String emp_name, String mail_title, String content, String mail_product_name, String send_date, String mail_address) {
         this.emp_name = emp_name;
         this.mail_title = mail_title;
         this.content = content;
@@ -25,7 +23,6 @@ public class Mail_InfoSaveRequestDto {
 
     public Mail_Info toEntity() {
         return Mail_Info.builder()
-                .mail_no(mail_no)
                 .emp_name(emp_name)
                 .mail_title(mail_title)
                 .content(content)

@@ -12,7 +12,10 @@ import javax.persistence.*;
 @Table(name="MAIL_INFO")
 public class Mail_Info {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MAIL_INFO")
+    @SequenceGenerator(name = "SEQ_MAIL_INFO", sequenceName = "SEQ_MAIL_INFO", allocationSize = 1)
     private String mail_no;
+
     private String emp_name;
     private String mail_title;
     private String content;
@@ -21,8 +24,7 @@ public class Mail_Info {
     private String mail_address;
 
     @Builder
-    public Mail_Info(String mail_no, String emp_name, String mail_title, String content, String mail_product_name, String send_date, String mail_address) {
-        this.mail_no = mail_no;
+    public Mail_Info(String emp_name, String mail_title, String content, String mail_product_name, String send_date, String mail_address) {
         this.emp_name = emp_name;
         this.mail_title = mail_title;
         this.content = content;
