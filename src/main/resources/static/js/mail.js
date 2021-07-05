@@ -9,39 +9,42 @@ const main = {
         })
     },
     send: function () {
+        var date = new Date();
+        var send_date = date.toLocaleString();
         const data = {
+            emp_name: $('#engineer_name').val(),
             address: $('#address').val(),
             title: $('#title').val(),
-            message: $('#message').val()
+            message: $('#message').val(),
+            mail_product_name: document.getElementById('product').innerText,
+            customer: document.getElementById('check').innerText,
+            send_date: send_date
         };
-        $.ajax({
-            type: 'POST',
-            url: '/api/send',
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-        }).done(function () {
-            alert('메일 전송 완료')
-            var date = new Date();
-            var send_date = date.toLocaleString();
-            const db_data = {
-                enginner_name: $('#engineer_name').val(),
-                address: $('#address').val(),
-                product: $('#product').val(),
-                customer: $('#check').val(),
-                title: $('#title').val(),
-                content: $('#message').val(),
-                date: send_date
-            };
+
+        if(data.address === '' || data.title === '' || data.message === '' || data.message === '' || data.emp_name === '' || data.mail_product_name === '' || data.customer === '') {
+            alert('작성이 완료되지 않았습니다.');
+        } else {
             $.ajax({
                 type: 'POST',
-                url: '/api/mail-save',
+                url: '/api/send',
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(data)
-            })}.fail(function (error) {
-                alert(JSON.stringify(error))
-            }))
+                data: JSON.stringify(data),
+                success: function () {
+                    alert('메일 전송 완료');
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/mail-save',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: function () {
+                            location.href='/lookup';
+                            alert('메일 DB저장 성공');
+                        }
+                    });
+                }
+            });
+        }
     },
     openSelect: function () {
         // window.open('http://localhost:8080/select','selectView','width=680, height=580, top=0')

@@ -14,22 +14,24 @@ public class Mail_Info {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MAIL_INFO")
     @SequenceGenerator(name = "SEQ_MAIL_INFO", sequenceName = "SEQ_MAIL_INFO", allocationSize = 1)
-    private String mail_no;
+    private Integer mail_no;
 
     private String emp_name;
-    private String mail_title;
-    private String content;
+    private String title;
+    private String message;
     private String mail_product_name;
     private String send_date;
-    private String mail_address;
+    private String address;
+    private String customer;
 
     @Builder
-    public Mail_Info(String emp_name, String mail_title, String content, String mail_product_name, String send_date, String mail_address) {
+    public Mail_Info(String emp_name, String title, String message, String mail_product_name, String send_date, String address, String customer) {
         this.emp_name = emp_name;
-        this.mail_title = mail_title;
-        this.content = content;
+        this.title = title;
+        this.message = message;
         this.mail_product_name = mail_product_name;
         this.send_date = send_date;
-        this.mail_address = mail_address;
+        this.address = address;
+        this.customer = customer;
     }
 }

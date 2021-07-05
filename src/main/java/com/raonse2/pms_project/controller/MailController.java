@@ -20,10 +20,11 @@ public class MailController {
     private final Mail_InfoService mailInfoService;
     @PostMapping("/api/send")
     public @ResponseBody
-    MailResponse execMail(@RequestBody MailDto mailDto){
+    MailResponse execMail(@RequestBody MailDto mailDto) {
         MailResponseDto mailResponseDto = null;
         try{
-            mailService.mailSend(mailDto);
+            String temp = mailService.mailSend(mailDto);
+
             mailResponseDto = new MailResponseDto("전송 완료");
         } catch(Exception e){
             mailResponseDto = new MailResponseDto("전송 실패. "+ e);
@@ -32,8 +33,7 @@ public class MailController {
     }
 
     @PostMapping("/api/mail-save")
-    public void save(Mail_InfoSaveRequestDto requestDto) {
+    public void save(@RequestBody Mail_InfoSaveRequestDto requestDto) {
         mailInfoService.save(requestDto);
     }
-
 }

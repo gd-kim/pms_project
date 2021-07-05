@@ -5,30 +5,33 @@ import lombok.Builder;
 
 public class Mail_InfoSaveRequestDto {
     private String emp_name;
-    private String mail_title;
-    private String content;
+    private String title;
+    private String message;
     private String mail_product_name;
     private String send_date;
-    private String mail_address;
+    private String address;
+    private String customer;
 
     @Builder
-    public Mail_InfoSaveRequestDto(String emp_name, String mail_title, String content, String mail_product_name, String send_date, String mail_address) {
+    public Mail_InfoSaveRequestDto(String emp_name, String title, String message, String mail_product_name, String send_date, String address, String customer) {
         this.emp_name = emp_name;
-        this.mail_title = mail_title;
-        this.content = content;
+        this.title = title;
+        this.message = message;
         this.mail_product_name = mail_product_name;
         this.send_date = send_date;
-        this.mail_address = mail_address;
+        this.address = address;
+        this.customer = customer;
     }
 
     public Mail_Info toEntity() {
         return Mail_Info.builder()
                 .emp_name(emp_name)
-                .mail_title(mail_title)
-                .content(content)
+                .title(title)
+                .message(message)
                 .mail_product_name(mail_product_name)
                 .send_date(send_date)
-                .mail_address(mail_address)
+                .address(address)
+                .customer(customer)
                 .build();
     }
 }
