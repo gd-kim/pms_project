@@ -1,7 +1,10 @@
 package com.raonse2.pms_project.controller;
 
+import com.raonse2.pms_project.dto.customer_emp_info.Customer_emp_infoResponseDto;
+import com.raonse2.pms_project.dto.product_info.Product_InfoResponseDto;
 import com.raonse2.pms_project.dto.project_view.Project_viewResponseDto;
-import com.raonse2.pms_project.model.Project_viewTable;
+import com.raonse2.pms_project.querydslRepository.Product_InfoRepositorySupport;
+import com.raonse2.pms_project.service.Customer_Emp_InfoService;
 import com.raonse2.pms_project.service.Engineer_InfoService;
 import com.raonse2.pms_project.service.Project_viewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,11 @@ public class MainController {
     @Autowired
     Project_viewService project_viewService;
 
+    @Autowired
+    Product_InfoRepositorySupport productInfoRepositorySupport;
+
+    @Autowired
+    Customer_Emp_InfoService customer_emp_infoService;
 
     @RequestMapping("/hello")
     public String hello(Model model) {
@@ -40,10 +48,12 @@ public class MainController {
 
     @RequestMapping("/pjt-detail/{pjtcode}")
     public ModelAndView pjtdetail(ModelAndView mv, @PathVariable("pjtcode") String pjtcode){
-        System.out.println("pjtcode:::: "+ pjtcode);
+        //System.out.println("pjtcode:::: "+ pjtcode);
 
+        List<Product_InfoResponseDto> product_infos = productInfoRepositorySupport.findByProductNo(pjtcode);
         mv.setViewName("detail");
         mv.addObject("pjtcode",pjtcode);
+        mv.addObject("product_infos",product_infos);
 
         return mv;
     }
@@ -54,4 +64,11 @@ public class MainController {
         return mv;
     }
 
+    @RequestMapping("/customerEmp")
+    public ModelAndView customerEmp(ModelAndView mv){
+        mv.setViewName("customerEmp");
+        List<Customer_emp_infoResponseDto> customerEmpList = customer_emp_infoService.findByAll();
+        mv.getModelMap().addAttribute("customerEmpList", customerEmpList);
+        return mv;
+    }
 }

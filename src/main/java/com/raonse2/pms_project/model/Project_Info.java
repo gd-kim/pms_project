@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor      //lombok
 @Entity
 @Table(name = "ENGINEER_INFO")
-public class Project_Info extends BaseTimeEntity {
+public class Project_Info{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ENGINEER_EMPNO")
@@ -21,6 +21,7 @@ public class Project_Info extends BaseTimeEntity {
     private String mail_address;
     private int create_emp_no;
     private int update_emp_no;
+
 
     @Builder // 롬복, 빌더 패턴 클래스 생성
     public Project_Info(String emp_name, String mail_address, int create_emp_no, int update_emp_no){

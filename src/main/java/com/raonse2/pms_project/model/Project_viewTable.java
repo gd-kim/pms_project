@@ -1,6 +1,5 @@
 package com.raonse2.pms_project.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.Immutable;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,9 +18,12 @@ public class Project_viewTable {
     private String project_code;
     private String project_name;
     private String customer_name;
+    private int customer_no;
     private String sales_name;
-    private Date start_date;
-    private Date end_date;
+    private int salesno;
+    private String start_date;
+    private String end_date;
     private String emp_name;
+    private int empno;
 
 }

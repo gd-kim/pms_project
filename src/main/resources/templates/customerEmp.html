@@ -171,44 +171,26 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>프로젝트 코드</th>
-                                            <th>프로젝트명</th>
-                                            <th>고객사명</th>
-                                            <th>담당영업</th>
-                                            <th>유지보수 시작일</th>
-                                            <th>유지보수 만료일</th>
-                                            <th>담당SE</th>
+                                            <th>customer_empno</th>
+                                            <th>customer_emp_name</th>
+                                            <th>customer_mail_address</th>
+                                            <th>customer_emp_phone</th>
+                                            <th>customer_no</th>
                                         </tr>
                                     </thead>
-<!--                                     <tfoot> -->
-<!--                                         <tr> -->
-<!--                                             <th>Name</th> -->
-<!--                                             <th>Position</th> -->
-<!--                                             <th>Office</th> -->
-<!--                                             <th>Age</th> -->
-<!--                                             <th>Start date</th> -->
-<!--                                             <th>Salary</th> -->
-<!--                                         </tr> -->
-<!--                                     </tfoot> -->
+
                                     <tbody>
-                                        <tr th:onclick="main.trClick(this.getAttribute('data-pjtcode')
-                                        ,this.getAttribute('data-customer_no')
-                                        ,this.getAttribute('data-empno')
-                                        ,this.getAttribute('data-customer_name')
-                                        ,this.getAttribute('data-projectname'))"
-                                            th:each="pjt : ${pjList}"
-                                            th:data-pjtcode="${pjt.getProject_code()}"
-                                            th:data-customer_no="${pjt.getCustomer_no()}"
-                                            th:data-customer_name="${pjt.getCustomer_name()}"
-                                            th:data-empno="${pjt.getEmpno()}"
-                                            th:data-projectname="${pjt.getProject_name()}">
-                                            <td th:text="${pjt.getProject_code()}"></td>
-                                            <td th:text="${pjt.getProject_name()}"></td>
-                                            <td th:text="${pjt.getCustomer_name()}"></td>
-                                            <td th:text="${pjt.getSales_name()}"></td>
-                                            <td th:text="${pjt.getStart_date()}"></td>
-                                            <td th:text="${pjt.getEnd_date()}"></td>
-                                            <td th:text="${pjt.getEmp_name()}"></td>
+                                        <tr th:each="customerEmp : ${customerEmpList}"
+                                            th:data-customer_empno="${customerEmp.getCustomer_empno()}"
+                                            th:data-customer_emp_name="${customerEmp.getCustomer_emp_name()}"
+                                            th:data-customer_mail_address="${customerEmp.getCustomer_mail_address()}"
+                                            th:data-customer_emp_phone="${customerEmp.getCustomer_emp_phone()}"
+                                            th:data-customer_no="${customerEmp.getCustomer_no()}">
+                                            <td th:text="${customerEmp.getCustomer_empno()}"></td>
+                                            <td th:text="${customerEmp.getCustomer_emp_name()}"></td>
+                                            <td th:text="${customerEmp.getCustomer_mail_address()}"></td>
+                                            <td th:text="${customerEmp.getCustomer_emp_phone()}"></td>
+                                            <td th:text="${customerEmp.getCustomer_no()}"></td>
                                         </tr>
                                     </tbody>
                                 </table>
