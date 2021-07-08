@@ -47,8 +47,16 @@ const main = {
                             loadingBarEnd();
                             location.href='/lookup';
                             alert('메일 DB저장 성공');
+                        },
+                        error: function (jqxhr, textStatus, errorThrown) {
+                            alert('DB저장 실패 : ' + jqxhr.status + ' ' + jqxhr.statusText);
+                            loadingBarEnd();
                         }
                     });
+                },
+                error: function (jqxhr, textStatus, errorThrown) {
+                    alert('메일 전송 실패 : ' + jqxhr.status + ' / ' + jqxhr.statusText);
+                    loadingBarEnd();
                 }
             });
         }

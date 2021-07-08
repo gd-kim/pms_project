@@ -23,9 +23,9 @@ public class MailController {
     MailResponse execMail(@RequestBody MailDto mailDto) {
         MailResponseDto mailResponseDto = null;
         try{
-            String temp = mailService.mailSend(mailDto);
+            String sendResult = mailService.mailSend(mailDto);
 
-            mailResponseDto = new MailResponseDto("전송 완료");
+            mailResponseDto = new MailResponseDto(sendResult);
         } catch(Exception e){
             mailResponseDto = new MailResponseDto("전송 실패. "+ e);
         }
