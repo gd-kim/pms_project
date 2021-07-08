@@ -7,6 +7,11 @@ const main = {
         $('#btn-select').on('click', function () {
             _this.openSelect()
         })
+        $('#btn-cancel').on('click', function () {
+            if(confirm('취소하시겠습니까? 작성된 내용이 모두 사라집니다.')){
+                location.href='/tables';
+            }
+        })
     },
     send: function () {
         var date = new Date();
@@ -24,6 +29,7 @@ const main = {
         if(data.address === '' || data.title === '' || data.message === '' || data.message === '' || data.emp_name === '' || data.mail_product_name === '' || data.customer === '') {
             alert('작성이 완료되지 않았습니다.');
         } else {
+            loadingBarStart();
             $.ajax({
                 type: 'POST',
                 url: '/api/send',
@@ -38,6 +44,7 @@ const main = {
                         contentType: 'application/json; charset=utf-8',
                         data: JSON.stringify(data),
                         success: function () {
+                            loadingBarEnd();
                             location.href='/lookup';
                             alert('메일 DB저장 성공');
                         }
@@ -81,5 +88,21 @@ function multipleScreenPopup(url, title, w, h, centered = true, moveRight = 0, m
     if (window.focus) {
         newWindow.focus();
     }
+}
 
+function loadingBarStart() {
+    var backHeight = $(document).height(); //뒷 배경의 상하 폭
+    var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
+    var loadingBarImage = "<div id='back'>"; //뒷 배경을 감쌀 커버
+    loadingBarImage += "<div class=\"loading\" id=\"Progress_Loading\"></div>"; //로딩 바 이미지
+    loadingBarImage += "<div id=\"loading-text\">전송 중...</div>";
+    loadingBarImage += "</div>";
+    $('body').append(loadingBarImage);
+    $('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
+    $('#back').show();
+}
+
+function loadingBarEnd() {
+    $('#back').hide();
+    $('#back').remove();
 }
