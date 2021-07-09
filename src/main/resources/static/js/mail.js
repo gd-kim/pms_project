@@ -7,24 +7,59 @@ const main = {
         $('#btn-select').on('click', function () {
             _this.openSelect()
         })
+        $('#btn-cancel').on('click', function () {
+            if(confirm('취소하시겠습니까? 작성된 내용이 모두 사라집니다.')){
+                location.href='/tables';
+            }
+        })
     },
     send: function () {
+        var date = new Date();
+        var send_date = date.toLocaleString();
         const data = {
+            emp_name: $('#engineer_name').val(),
             address: $('#address').val(),
             title: $('#title').val(),
-            message: $('#message').val()
+            message: $('#message').val(),
+            mail_product_name: document.getElementById('product').innerText,
+            customer: document.getElementById('check').innerText,
+            send_date: send_date
         };
-        $.ajax({
-            type: 'POST',
-            url: '/api/send',
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-        }).done(function () {
-            alert('메일 전송 완료')
-        }).fail(function (error) {
-            alert(JSON.stringify(error))
-        });
+
+        if(data.address === '' || data.title === '' || data.message === '' || data.message === '' || data.emp_name === '' || data.mail_product_name === '' || data.customer === '') {
+            alert('작성이 완료되지 않았습니다.');
+        } else {
+            loadingBarStart();
+            $.ajax({
+                type: 'POST',
+                url: '/api/send',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data),
+                success: function () {
+                    alert('메일 전송 완료');
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/mail-save',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: function () {
+                            loadingBarEnd();
+                            location.href='/lookup';
+                            alert('메일 DB저장 성공');
+                        },
+                        error: function (jqxhr, textStatus, errorThrown) {
+                            alert('DB저장 실패 : ' + jqxhr.status + ' ' + jqxhr.statusText);
+                            loadingBarEnd();
+                        }
+                    });
+                },
+                error: function (jqxhr, textStatus, errorThrown) {
+                    alert('메일 전송 실패 : ' + jqxhr.status + ' / ' + jqxhr.statusText);
+                    loadingBarEnd();
+                }
+            });
+        }
     },
     openSelect: function () {
         // window.open('http://localhost:8080/select','selectView','width=680, height=580, top=0')
@@ -33,7 +68,6 @@ const main = {
         // multipleScreenPopup('https://google.com', '_blank', 500, 500);
         // move from the left and from the top
         multipleScreenPopup('http://localhost:8080/select', 'selectView', 680, 580, false, 0, 0);
-
     }
 };
 main.init();
@@ -62,5 +96,21 @@ function multipleScreenPopup(url, title, w, h, centered = true, moveRight = 0, m
     if (window.focus) {
         newWindow.focus();
     }
+}
 
+function loadingBarStart() {
+    var backHeight = $(document).height(); //뒷 배경의 상하 폭
+    var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
+    var loadingBarImage = "<div id='back'>"; //뒷 배경을 감쌀 커버
+    loadingBarImage += "<div class=\"loading\" id=\"Progress_Loading\"></div>"; //로딩 바 이미지
+    loadingBarImage += "<div id=\"loading-text\">전송 중...</div>";
+    loadingBarImage += "</div>";
+    $('body').append(loadingBarImage);
+    $('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
+    $('#back').show();
+}
+
+function loadingBarEnd() {
+    $('#back').hide();
+    $('#back').remove();
 }

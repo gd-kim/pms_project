@@ -1,6 +1,6 @@
 package com.raonse2.pms_project.controller;
 
-import com.raonse2.pms_project.dto.project_view.Mail_InfoResponseDto;
+import com.raonse2.pms_project.dto.mail_info.Mail_InfoResponseDto;
 import com.raonse2.pms_project.service.Mail_InfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

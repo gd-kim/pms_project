@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>메일 발송</title>
+    <title>메일 배포</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/loadingbar.css" rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
@@ -15,7 +16,6 @@
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
-
 <!-- Page Wrapper -->
 <div id="wrapper">
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -158,13 +158,15 @@
                                         <label class="small mb-1">작성자 이름</label>
                                         <input class="form-control" id="engineer_name" type="text" placeholder="작성자의 이름을 입력하세요.">
                                     </div>
-                                    <div class="mb-3">btn-select
+                                    <div class="mb-3">
                                         <label class="small mb-1">받는 사람</label>
-                                        <input class="form-control" id="btn-select" type="button" value="솔루션 & 고객사 담당자 선택">
+                                        <div class="mb-2">
+                                            <input class="btn btn-primary text-white" id="btn-select" type="button" value="솔루션 & 고객사 담당자 선택">
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="small mb-1">수신 메일 주소</label>
-                                        <input class="form-control" id="address" type="text" placeholder="선택한 고객사 메일 주소가 입력됩니다." readonly>
+                                        <textarea class="form-control" id="address" type="text" placeholder="선택한 고객사 메일 주소가 입력됩니다." rows="3"></textarea>
                                     </div>
                                     <div class="card mb-3">
                                         <div class="card-header">Selected Solutions</div>
@@ -180,14 +182,17 @@
                                     </div>
                                     <div>
                                         <label class="small mb-1">메일 내용</label>
-                                        <textarea class="form-control" id="message" placeholder="메일 내용을 입력해주세요." cols="120" rows="30"></textarea><br>
+                                        <textarea class="form-control" id="message" placeholder="메일 내용을 입력해주세요." rows="20"></textarea><br>
                                     </div>
-                                    <a href="/mail" class="btn btn-success btn-circle" id="btn-send">
-                                        <i class="fas fa-check"></i>
-                                    </a>
-                                    <a href="/home" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                    <div class="col text-center">
+                                        <button type="button" class="btn btn-success btn-circle" id="btn-send">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button type="button" class="btn btn-danger btn-circle" id="btn-cancel">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

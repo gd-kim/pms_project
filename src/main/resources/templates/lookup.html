@@ -163,8 +163,8 @@
                                 <tr th:each="mailrecord : ${miList}">
                                     <td th:text="${mailrecord.getMail_no}"></td>
                                     <td th:text="${mailrecord.getEmp_name}"></td>
-                                    <td th:text="${mailrecord.getMail_title}"></td>
-                                    <td th:text="${mailrecord.getSolution_name}"></td>
+                                    <td th:text="${mailrecord.getTitle}"></td>
+                                    <td th:text="${mailrecord.getMail_product_name}"></td>
                                     <td th:text="${mailrecord.getSend_date}"></td>
                                 </tr>
                                 </tbody>

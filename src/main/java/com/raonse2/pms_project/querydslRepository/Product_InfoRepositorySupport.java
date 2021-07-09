@@ -5,7 +5,6 @@ import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.raonse2.pms_project.dto.product_info.Product_InfoResponseDto;
 import com.raonse2.pms_project.model.Product_Info;
-
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +34,16 @@ public class Product_InfoRepositorySupport extends QuerydslRepositorySupport {
                                 .from(project_Product_Info)
                                 .where(project_Product_Info.projectCode.eq(productCode))
                 )).fetch();
+    }
+
+    //String productName
+    @Transactional(readOnly = true)
+    public List<String> findProductNameByProjectCode(String projectCode) {
+        return queryFactory
+                .select(product_Info.productName)
+                .from(project_Product_Info, product_Info)
+                .where(project_Product_Info.productNo.eq(product_Info.productNo), project_Product_Info.projectCode.eq(projectCode))
+                .fetch();
     }
 }
 
