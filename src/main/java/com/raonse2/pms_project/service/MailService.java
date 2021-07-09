@@ -27,8 +27,9 @@ public class MailService {
             mailSender.send(message);
         } catch(MailException e){
             e.printStackTrace();
-            return "전송 실패";
+            String error = "메일 전송 실패 : " + e;
+            return error;
         }
-        return "전송 성공";
+        return "메일 전송 성공";
     }
 }

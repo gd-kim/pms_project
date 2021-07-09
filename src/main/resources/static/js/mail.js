@@ -36,26 +36,35 @@ const main = {
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(data),
-                success: function () {
-                    alert('메일 전송 완료');
-                    $.ajax({
-                        type: 'POST',
-                        url: '/api/mail-save',
-                        contentType: 'application/json; charset=utf-8',
-                        data: JSON.stringify(data),
-                        success: function () {
-                            loadingBarEnd();
-                            location.href='/lookup';
-                            alert('메일 DB저장 성공');
-                        },
-                        error: function (jqxhr, textStatus, errorThrown) {
-                            alert('DB저장 실패 : ' + jqxhr.status + ' ' + jqxhr.statusText);
-                            loadingBarEnd();
-                        }
-                    });
+                success: function (returnData) {
+                    console.log(returnData.data.result);
+
+                    if(returnData.data.result == '메일 전송 성공') {
+                        alert(returnData.data.result);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/api/mail-save',
+                            contentType: 'application/json; charset=utf-8',
+                            data: JSON.stringify(data),
+                            success: function () {
+                                console.log('메일 DB저장 성공');
+                                loadingBarEnd();
+                                location.href='/lookup';
+                            },
+                            error: function (jqxhr, textStatus, errorThrown) {
+                                alert('DB서버 전송 실패 : ' + jqxhr.status + ' ' + jqxhr.statusText);
+                                loadingBarEnd();
+                            }
+                        });
+                    } else {
+                        alert(returnData.data.result);
+                        loadingBarEnd();
+                        console.log(returnData.data.result);
+                    }
                 },
                 error: function (jqxhr, textStatus, errorThrown) {
-                    alert('메일 전송 실패 : ' + jqxhr.status + ' / ' + jqxhr.statusText);
+                    alert('메일 서버 전송 실패 : ' + jqxhr.status + ' ' + jqxhr.statusText);
                     loadingBarEnd();
                 }
             });
