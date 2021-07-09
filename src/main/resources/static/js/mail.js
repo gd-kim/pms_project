@@ -36,11 +36,11 @@ const main = {
                 dataType: 'json',
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(data),
-                success: function (returnData) {
-                    console.log(returnData.data.result);
+                success: function (responseData) {
+                    console.log(responseData.data.result);
 
-                    if(returnData.data.result == '메일 전송 성공') {
-                        alert(returnData.data.result);
+                    if(responseData.data.result == '메일 전송 성공') {
+                        alert(responseData.data.result);
 
                         $.ajax({
                             type: 'POST',
@@ -58,9 +58,9 @@ const main = {
                             }
                         });
                     } else {
-                        alert(returnData.data.result);
+                        alert(responseData.data.result);
                         loadingBarEnd();
-                        console.log(returnData.data.result);
+                        console.log(responseData.data.result);
                     }
                 },
                 error: function (jqxhr, textStatus, errorThrown) {
