@@ -70,6 +70,32 @@ const main = {
         });
     },
 
+    checkButtonClick: function() {
+        const data = {
+            projectCode : $('#pjtcode').val(),
+            customerEmpName : $('#customer_emp_name').val(),
+            customerMailAddress : $('#mail').val(),
+            customerEmpPhone : $('#pnumber').val()
+        }
+
+        /*
+         * 고객사 담당자 정보 수정
+         */
+        $.ajax({
+                url: '/api/v1.0/customer-emp-info/2/projectCode',
+                type: 'PUT',
+                contentType: 'application/json; charset=utf-8',
+                data : JSON.stringify(data),
+                success : function(){
+                    console.log("업데이트 완료");
+                }
+            });
+    },
+
+    openSelectEngineer: function() {
+        main.multipleScreenPopup('http://localhost:8080/selectEngineer', 'selectEngineer', 680, 580, false, 0, 0);
+    },
+
     createProject: function () {
         // window.open('http://localhost:8080/select','selectView','width=680, height=580, top=0')
 

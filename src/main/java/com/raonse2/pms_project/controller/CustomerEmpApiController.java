@@ -2,11 +2,9 @@ package com.raonse2.pms_project.controller;
 
 import com.raonse2.pms_project.dto.customer_emp_info.Customer_emp_infoResponseDto;
 import com.raonse2.pms_project.querydslRepository.Customer_Emp_InfoRepositorySupport;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,16 @@ public class CustomerEmpApiController {
     @GetMapping("/1/customerNo")
     public List<Customer_emp_infoResponseDto> findByCustomerNo (@RequestParam int customerNo){
        return customerEmpInfoRepositorySupport.findByCustomerNo(customerNo);
+    }
+
+    @PutMapping("/2/projectCode")
+    public void updateCustomerEmpInfo(@RequestBody String requestData) {
+        JSONObject data = new JSONObject(requestData);
+        String projectCode = (String) data.get("projectCode");
+        String customerEmpName = (String) data.get("customerEmpName");
+        String customerMailAddress = (String) data.get("customerMailAddress");
+        String customerEmpPhone = (String) data.get("customerEmpPhone");
+
+        customerEmpInfoRepositorySupport.updateCustomerEmpInfo(projectCode, customerEmpName, customerMailAddress, customerEmpPhone);
     }
 }
