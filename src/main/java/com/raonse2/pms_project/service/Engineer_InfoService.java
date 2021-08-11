@@ -36,7 +36,7 @@ public class Engineer_InfoService {
     @Transactional
     public void update(int empno, Engineer_InfoUpdateRequestDto requestDto){
         Engineer_Info engineer_info = engineer_InfoRepository.findByEmpno(empno).orElseThrow(()-> new IllegalArgumentException("해당 사용자는 존재하지 않습니다.. empno= "+empno));
-        engineer_info.update(requestDto.getEmp_name(), requestDto.getMail_address(), requestDto.getUpdate_emp_no());
+        engineer_info.update(requestDto.getEmp_name(), requestDto.getMail_address());
     }
 
 }

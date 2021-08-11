@@ -4,16 +4,17 @@ import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoSaveRequestDto;
 import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoResponseDto;
 import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoUpdateRequestDto;
 import com.raonse2.pms_project.service.Engineer_InfoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1.0/engineer-info")
 public class EngineerApiController {
 
-    @Autowired
-    Engineer_InfoService engineer_infoService;
+
+    private final Engineer_InfoService engineer_infoService;
     /*
      *** REST API URL설계 RULES
      1. 마지막에 / 를 포함하지 않는다.

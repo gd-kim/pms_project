@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class MailService {
-    private JavaMailSender mailSender;
+/*    private JavaMailSender mailSender;
     public String mailSend(MailDto mailDto){
         SimpleMailMessage message = new SimpleMailMessage();
         try {
@@ -26,5 +26,5 @@ public class MailService {
             return "전송 실패";
         }
         return "전송 성공";
-    }
+    }*/
 }

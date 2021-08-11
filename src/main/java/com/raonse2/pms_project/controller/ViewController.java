@@ -1,7 +1,7 @@
 package com.raonse2.pms_project.controller;
 
 import com.raonse2.pms_project.dto.project_view.Mail_InfoResponseDto;
-import com.raonse2.pms_project.service.Mail_InfoService;
+//import com.raonse2.pms_project.service.Mail_InfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 public class ViewController {
-    @Autowired
+/*    @Autowired
     Mail_InfoService mailInfoService;
 
     @GetMapping("/mail")
@@ -34,5 +34,5 @@ public class ViewController {
         mv.getModelMap().addAttribute("miList", miList);
 
         return mv;
-    }
+    }*/
 }

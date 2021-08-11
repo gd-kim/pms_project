@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
 @RequiredArgsConstructor
 @Service
 public class Mail_InfoService {
@@ -19,3 +20,4 @@ public class Mail_InfoService {
         return mailInfoRepository.findAll().stream().map(Mail_InfoResponseDto::new).collect(Collectors.toList());
     }
 }
+*/

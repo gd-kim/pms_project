@@ -22,8 +22,6 @@ public class Product_InfoResponseDto {
     public Product_InfoResponseDto(Product_Info entity){
         this.productNo = entity.getProductNo();
         this.productName = entity.getProductName();
-        this.createEmpNo = entity.getCreateEmpNo();
-        this.updateEmpNo = entity.getUpdateEmpNo();
         this.productStandard = entity.getProductStandard();
         this.productOptions = entity.getProductOptions();
     }

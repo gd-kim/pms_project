@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class MailController {
-    private final MailService mailService;
+ /*   private final MailService mailService;
 
     @PostMapping("/api/send")
     public @ResponseBody
@@ -27,5 +27,5 @@ public class MailController {
             mailResponseDto = new MailResponseDto("전송 실패. "+ e);
         }
         return ApiAdapter.mailResponse(mailResponseDto);
-    }
+    }*/
 }
