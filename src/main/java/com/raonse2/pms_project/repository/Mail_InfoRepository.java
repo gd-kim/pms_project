@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface Mail_InfoRepository extends JpaRepository<Mail_Info, String> {
+public interface Mail_InfoRepository extends JpaRepository<Mail_Info, Integer> {
     List<Mail_Info> findAll();
 }

@@ -1,12 +1,7 @@
 package com.raonse2.pms_project.controller;
 
-import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoResponseDto;
-import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoSaveRequestDto;
-import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoUpdateRequestDto;
 import com.raonse2.pms_project.dto.product_info.Product_InfoResponseDto;
-import com.raonse2.pms_project.model.Product_Info;
 import com.raonse2.pms_project.querydslRepository.Product_InfoRepositorySupport;
-import com.raonse2.pms_project.service.Engineer_InfoService;
 import com.raonse2.pms_project.service.Product_InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +48,14 @@ public class ProductApiController {
         return productInfoRepositorySupport.findByProductNo(pjtcode);
     }
 
-
+    /**
+     * 프로젝트 코드로 품명 리스트를 조회한다
+     * @param pjtcode
+     * @return List<String>
+     * @author sjseo
+     */
+    @GetMapping("/3/projectcode")
+    public List<String> findProductNameByProductNo (@RequestParam String pjtcode){
+        return productInfoRepositorySupport.findProductNameByProjectCode(pjtcode);
+    }
 }
