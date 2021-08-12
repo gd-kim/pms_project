@@ -4,6 +4,7 @@ plugins {
     id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
     id "io.franzbecker.gradle-lombok" version "3.0.0"
     id 'java'
+    id 'war'
 }
 
 group = 'com.raonse2'
@@ -39,8 +40,7 @@ dependencies {
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.1.0'
     implementation 'junit:junit:4.12'
     implementation 'org.projectlombok:lombok'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-security:2.1.2.RELEASE'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2:2.1.2.RELEASE'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 //querydsl 추가 시작
 def querydslDir = "src/main/generated/querydsl"

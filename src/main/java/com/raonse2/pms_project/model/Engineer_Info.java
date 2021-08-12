@@ -4,7 +4,9 @@ import com.raonse2.pms_project.util.BaseTimeEntity;
 import lombok.*;
 
 import javax.persistence.*;
-
+/*
+테스트입니다.
+*/
 @Getter                   //lombok
 @NoArgsConstructor      //lombok
 @Entity
