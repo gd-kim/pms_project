@@ -5,7 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 /*
-테스트입니다.
+테스트입니다...
 */
 @Getter                   //lombok
 @NoArgsConstructor      //lombok
