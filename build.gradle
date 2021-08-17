@@ -11,6 +11,11 @@ group = 'com.raonse2'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+bootWar{
+    archiveBaseName="pmsproject"
+    archiveVersion="1.0.1-SNAPSHOT"
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
