@@ -27,31 +27,14 @@ public class Project_Info{
 
 
     @Builder // 롬복, 빌더 패턴 클래스 생성
-    public Project_Info(String project_code, String project_name,String start_date, String end_date, int customer_no, int build_engineer_no, int sub_engineer_no, int salesno){
-        this.project_code= project_code;
-        this.project_name= project_name;
-        this.start_date= start_date;
-        this.end_date= end_date;
-        this.customer_no= customer_no;
-        this.build_engineer_no = build_engineer_no;
-        this.sub_engineer_no = sub_engineer_no;
-        this.salesno = salesno;
-
-    public Project_Info(String project_code,
-                        String project_name,
-                        int customer_no,
-                        int build_engineer_no,
-                        int sub_engineer_no,
-                        int create_emp_no,
-                        int update_emp_no,
-                        int sales_no) {
+    public Project_Info(String project_code, String project_name,String start_date, String end_date, int customer_no, int build_engineer_no, int sub_engineer_no, int salesno) {
         this.project_code = project_code;
         this.project_name = project_name;
+        this.start_date = start_date;
+        this.end_date = end_date;
         this.customer_no = customer_no;
         this.build_engineer_no = build_engineer_no;
         this.sub_engineer_no = sub_engineer_no;
-        this.create_emp_no = create_emp_no;
-        this.update_emp_no = update_emp_no;
-        this.sales_no = sales_no;
+        this.salesno = salesno;
     }
 }
