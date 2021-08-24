@@ -9,11 +9,9 @@ import lombok.Getter;
  */
 @Getter
 public class Engineer_InfoResponseDto {
-
     private int empno;
     private String emp_name;
     private String mail_address;
-
 
     public Engineer_InfoResponseDto(Engineer_Info entity){
         this.empno = entity.getEmpno();

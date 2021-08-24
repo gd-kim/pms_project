@@ -1,7 +1,8 @@
 package com.raonse2.pms_project.model;
 
-import com.raonse2.pms_project.util.BaseTimeEntity;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 /*

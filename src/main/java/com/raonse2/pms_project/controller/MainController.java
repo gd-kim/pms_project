@@ -1,6 +1,7 @@
 package com.raonse2.pms_project.controller;
 
 import com.raonse2.pms_project.dto.customer_emp_info.Customer_emp_infoResponseDto;
+import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoResponseDto;
 import com.raonse2.pms_project.dto.product_info.Product_InfoResponseDto;
 import com.raonse2.pms_project.dto.project_view.Project_viewResponseDto;
 import com.raonse2.pms_project.querydslRepository.Product_InfoRepositorySupport;
@@ -43,6 +44,14 @@ public class MainController {
         mv.setViewName("tables");
         List<Project_viewResponseDto> pjList = project_viewService.findByAll();
         mv.getModelMap().addAttribute("pjList", pjList);
+        return mv;
+    }
+
+    @RequestMapping("/selectEngineer")
+    public ModelAndView selectEngineer(ModelAndView mv){
+        mv.setViewName("selectEngineer");
+        List<Engineer_InfoResponseDto> engineerList = engineer_infoService.findAll();
+        mv.getModelMap().addAttribute("engineerList", engineerList);
         return mv;
     }
 
