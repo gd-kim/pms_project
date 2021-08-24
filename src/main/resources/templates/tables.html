@@ -279,9 +279,9 @@
                                         <label class="small mb-1" for="pnumber">Phone Number</label>
                                         <input class="form-control" id="pnumber" type="tel" placeholder="고객사 담당자 연락처 입력.." value="545-123-4567">
                                     </div>
-                                    <a href="#" class="btn btn-success btn-circle">
+                                    <button type="button" class="btn btn-success btn-circle" onclick="main.checkButtonClick()">
                                         <i class="fas fa-check"></i>
-                                    </a>
+                                    </button>
                                     <a href="#" class="btn btn-danger btn-circle">
                                         <i class="fas fa-trash"></i>
                                     </a>
@@ -298,13 +298,13 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="emp_name">이름</label>
-                                    <input class="form-control" id="emp_name" type="text" placeholder="" value="">
+                                    <input class="form-control" id="emp_name" type="text" placeholder="" value="" readonly>
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="mail_address">이메일</label>
-                                    <input class="form-control" id="mail_address" type="text" placeholder="" value="">
+                                    <input class="form-control" id="mail_address" type="text" placeholder="" value="" readonly>
                                 </div>
-
+                                <input class="btn btn-primary text-white" type="button" onclick="main.openSelectEngineer()" value="담당 엔지니어 선택">
                             </div>
                         </div>
                     </div>

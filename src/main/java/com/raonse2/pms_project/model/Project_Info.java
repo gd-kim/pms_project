@@ -1,6 +1,5 @@
 package com.raonse2.pms_project.model;
 
-import com.raonse2.pms_project.util.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,5 +37,21 @@ public class Project_Info{
         this.sub_engineer_no = sub_engineer_no;
         this.salesno = salesno;
 
+    public Project_Info(String project_code,
+                        String project_name,
+                        int customer_no,
+                        int build_engineer_no,
+                        int sub_engineer_no,
+                        int create_emp_no,
+                        int update_emp_no,
+                        int sales_no) {
+        this.project_code = project_code;
+        this.project_name = project_name;
+        this.customer_no = customer_no;
+        this.build_engineer_no = build_engineer_no;
+        this.sub_engineer_no = sub_engineer_no;
+        this.create_emp_no = create_emp_no;
+        this.update_emp_no = update_emp_no;
+        this.sales_no = sales_no;
     }
 }

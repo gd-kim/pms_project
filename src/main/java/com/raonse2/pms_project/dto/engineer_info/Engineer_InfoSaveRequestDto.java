@@ -4,8 +4,6 @@ import com.raonse2.pms_project.model.Engineer_Info;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.sql.Date;
-
 /**
  * 고유 Entity는 건들면 안됨.
  * 따로 DTO 객체 만들어서 전달.
@@ -20,6 +18,7 @@ public class Engineer_InfoSaveRequestDto {
     public Engineer_InfoSaveRequestDto(String emp_name, String mail_address){
         this.emp_name = emp_name;
         this.mail_address = mail_address;
+
     }
 
     public Engineer_Info toEntity(){
