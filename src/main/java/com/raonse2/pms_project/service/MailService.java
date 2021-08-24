@@ -15,7 +15,7 @@ import javax.transaction.Transactional;
 @Service
 @AllArgsConstructor
 public class MailService {
-/*    private JavaMailSender mailSender;
+    private JavaMailSender mailSender;
     public String mailSend(MailDto mailDto){
         SimpleMailMessage message = new SimpleMailMessage();
         try {
@@ -27,8 +27,9 @@ public class MailService {
             mailSender.send(message);
         } catch(MailException e){
             e.printStackTrace();
-            return "전송 실패";
+            String error = "메일 전송 실패 : " + e;
+            return error;
         }
-        return "전송 성공";
-    }*/
+        return "메일 전송 성공";
+    }
 }
