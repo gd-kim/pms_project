@@ -12,14 +12,12 @@ public class Engineer_InfoUpdateRequestDto {
 
     private String emp_name;
     private String mail_address;
-    private int update_emp_no;
+
 
     @Builder
-    public Engineer_InfoUpdateRequestDto(String emp_name, String mail_address, int update_emp_no){
+    public Engineer_InfoUpdateRequestDto(String emp_name, String mail_address){
         this.emp_name = emp_name;
         this.mail_address = mail_address;
-        this.update_emp_no = update_emp_no;
-
     }
 
 }

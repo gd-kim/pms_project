@@ -13,8 +13,8 @@ import javax.persistence.*;
 public class Project_Product_Info {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROJECT_PRODUCT_INFO_SEQ")
-    @SequenceGenerator(name = "PROJECT_PRODUCT_INFO_SEQ", sequenceName = "PROJECT_PRODUCT_INFO_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROJECT_PRODUCT_INFO")
+    @SequenceGenerator(name = "SEQ_PROJECT_PRODUCT_INFO", sequenceName = "SEQ_PROJECT_PRODUCT_INFO", allocationSize = 1)
     @Column(name ="project_product_info_no")
     private int projectProductInfoNo;
 

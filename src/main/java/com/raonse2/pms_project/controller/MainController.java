@@ -1,6 +1,7 @@
 package com.raonse2.pms_project.controller;
 
 import com.raonse2.pms_project.dto.customer_emp_info.Customer_emp_infoResponseDto;
+import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoResponseDto;
 import com.raonse2.pms_project.dto.product_info.Product_InfoResponseDto;
 import com.raonse2.pms_project.dto.project_view.Project_viewResponseDto;
 import com.raonse2.pms_project.querydslRepository.Product_InfoRepositorySupport;
@@ -46,6 +47,14 @@ public class MainController {
         return mv;
     }
 
+    @RequestMapping("/selectEngineer")
+    public ModelAndView selectEngineer(ModelAndView mv){
+        mv.setViewName("selectEngineer");
+        List<Engineer_InfoResponseDto> engineerList = engineer_infoService.findAll();
+        mv.getModelMap().addAttribute("engineerList", engineerList);
+        return mv;
+    }
+
     @RequestMapping("/pjt-detail/{pjtcode}")
     public ModelAndView pjtdetail(ModelAndView mv, @PathVariable("pjtcode") String pjtcode){
         //System.out.println("pjtcode:::: "+ pjtcode);
@@ -63,6 +72,15 @@ public class MainController {
         mv.setViewName("login");
         return mv;
     }
+
+    @RequestMapping("/engineer")
+    public ModelAndView engineer(ModelAndView mv){
+
+        mv.setViewName("engineer");
+        return mv;
+    }
+
+
 
     @RequestMapping("/customerEmp")
     public ModelAndView customerEmp(ModelAndView mv){
