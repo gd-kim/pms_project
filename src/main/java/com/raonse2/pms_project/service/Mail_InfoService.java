@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
 @RequiredArgsConstructor
 @Service
 public class Mail_InfoService {
@@ -25,3 +26,4 @@ public class Mail_InfoService {
         mailInfoRepository.save(requestDto.toEntity());
     }
 }
+*/

@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
+/*
+테스트 입니다....제발되라
+*/
 @Getter                   //lombok
 @NoArgsConstructor      //lombok
 @Entity
@@ -28,6 +30,7 @@ public class Engineer_Info{
     public void update(String emp_name, String mail_address){
         this.emp_name= emp_name;
         this.mail_address= mail_address;
+
     }
 
 }

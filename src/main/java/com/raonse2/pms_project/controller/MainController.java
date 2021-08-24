@@ -73,6 +73,15 @@ public class MainController {
         return mv;
     }
 
+    @RequestMapping("/engineer")
+    public ModelAndView engineer(ModelAndView mv){
+
+        mv.setViewName("engineer");
+        return mv;
+    }
+
+
+
     @RequestMapping("/customerEmp")
     public ModelAndView customerEmp(ModelAndView mv){
         mv.setViewName("customerEmp");
