@@ -1,4 +1,26 @@
 const main = {
+    init: function () {
+        // 이벤트 등록
+        const _this = this;
+        $('#btn-check').on('click', function () {
+            _this.changeEngineer()
+        })
+
+        $('#btn-cancel').on('click', function (){
+            window.close();
+        })
+
+    },
+    changeEngineer : function (){
+        //체크된거 확인.
+        const radioList = document.getElementsByName('empname')
+        radioList.forEach((node) => {
+            if(node.checked){
+                this.updateEngineer(node.id)
+            }
+        })
+/*        window.close();*/
+    },
     trClick: function(pjtcode,customer_no,empno,customer_name,project_name){
         $('#pjtcode').val(pjtcode);
         $('#customer_no').val(customer_no);
@@ -130,5 +152,29 @@ const main = {
         if (window.focus) {
             newWindow.focus();
         }
+    },
+
+    updateEngineer(empno) {
+        const data = {
+            empno : empno,
+            projectCode : opener.$('#pjtcode').val()
+        }
+
+        /**
+         * 프로젝트 엔지니어 정보 가져오기
+         */
+        $.ajax({
+            url: '/api/v1.0/project-info/4',
+            type: 'PUT',
+            contentType: 'application/json; charset=utf-8',
+            data : JSON.stringify(data),
+            success : function(resData){
+                opener.$('#empno').val(resData.empno)
+                opener.$('#emp_name').val(resData.emp_name)
+                opener.$('#mail_address').val(resData.mail_address)
+                window.close()
+            }
+        });
     }
 }
+main.init();
