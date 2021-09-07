@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-/*test*/
 @Controller
 public class MainController {
     @Autowired
@@ -75,12 +74,11 @@ public class MainController {
 
     @RequestMapping("/engineer")
     public ModelAndView engineer(ModelAndView mv){
-
+        List<Engineer_InfoResponseDto> empList = engineer_infoService.findAll();
         mv.setViewName("engineer");
+        mv.addObject("empList",empList);
         return mv;
     }
-
-
 
     @RequestMapping("/customerEmp")
     public ModelAndView customerEmp(ModelAndView mv){
