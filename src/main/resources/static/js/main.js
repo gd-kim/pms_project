@@ -228,6 +228,6 @@ $('#engineer-update').click(function () {
 })
 
 $('#engineer-delete').click(function () {
-    alert("아직 삭제하면 안됨.")
+    alert("아직 삭제하면 안됩니다.")
 
 })
