@@ -31,7 +31,7 @@ public class Customer_Emp_InfoRepositorySupport extends QuerydslRepositorySuppor
         return queryFactory
                 .select(Projections.constructor(Customer_emp_infoResponseDto.class, customer_Emp_Info))
                 .from(customer_Emp_Info, customer_Info)
-                .where(customer_Emp_Info.customer_no.eq(customer_Info.customer_no), customer_Info.customer_no.eq(customerNo))
+                .where(customer_Emp_Info.customer_no.eq(customer_Info.customerno), customer_Info.customerno.eq(customerNo))
                 .fetch();
     }
 
@@ -74,7 +74,7 @@ public class Customer_Emp_InfoRepositorySupport extends QuerydslRepositorySuppor
                                 .from(customer_Info, customer_Emp_Info, project_Info)
                                 .where(project_Info.project_code.eq(projectCode),
                                         project_Info.customer_no.eq(customer_Emp_Info.customer_no),
-                                        customer_Info.customer_no.eq(customer_Emp_Info.customer_no))
+                                        customer_Info.customerno.eq(customer_Emp_Info.customer_no))
                 )).execute();
     }
 }

@@ -1,15 +1,13 @@
 package com.raonse2.pms_project.controller;
 
 import com.raonse2.pms_project.dto.customer_emp_info.Customer_emp_infoResponseDto;
+import com.raonse2.pms_project.dto.customer_info.Customer_infoResponseDto;
 import com.raonse2.pms_project.dto.engineer_info.Engineer_InfoResponseDto;
 import com.raonse2.pms_project.dto.product_info.Product_InfoResponseDto;
 import com.raonse2.pms_project.dto.project_view.Project_viewResponseDto;
 import com.raonse2.pms_project.dto.sales_info.Sales_InfoResponseDto;
 import com.raonse2.pms_project.querydslRepository.Product_InfoRepositorySupport;
-import com.raonse2.pms_project.service.Customer_Emp_InfoService;
-import com.raonse2.pms_project.service.Engineer_InfoService;
-import com.raonse2.pms_project.service.Project_viewService;
-import com.raonse2.pms_project.service.Sales_InfoService;
+import com.raonse2.pms_project.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +32,9 @@ public class MainController {
 
     @Autowired
     Customer_Emp_InfoService customer_emp_infoService;
+
+    @Autowired
+    Customer_InfoService customer_infoService;
 
     @RequestMapping("/hello")
     public String hello(Model model) {
@@ -93,6 +94,13 @@ public class MainController {
         return mv;
     }
 
+    @RequestMapping("/customer")
+    public ModelAndView customer(ModelAndView mv){
+        List<Customer_infoResponseDto> customerList = customer_infoService.findAll();
+        mv.setViewName("customer");
+        mv.addObject("customer",customerList);
+        return mv;
+    }
 
     @RequestMapping("/customerEmp")
     public ModelAndView customerEmp(ModelAndView mv){
