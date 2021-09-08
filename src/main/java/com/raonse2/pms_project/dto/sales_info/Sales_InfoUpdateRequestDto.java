@@ -1,0 +1,27 @@
+package com.raonse2.pms_project.dto.sales_info;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+/**
+ * 고유 Entity는 건들면 안됨.
+ * 따로 DTO 객체 만들어서 전달.
+ */
+@Getter
+@NoArgsConstructor
+public class Sales_InfoUpdateRequestDto {
+
+    private String sales_name;
+    private String sales_team;
+    private String email_address;
+
+
+    @Builder
+    public Sales_InfoUpdateRequestDto(String sales_name, String sales_team, String email_address){
+        this.sales_name = sales_name;
+        this.sales_team = sales_team;
+        this.email_address = email_address;
+    }
+
+}

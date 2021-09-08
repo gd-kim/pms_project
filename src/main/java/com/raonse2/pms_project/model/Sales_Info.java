@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor      //lombok
 @Entity
 @Table(name = "SALES_INFO")
-public class Sales_Info extends BaseTimeEntity {
+public class Sales_Info {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SALES_INFO")
