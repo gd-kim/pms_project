@@ -20,7 +20,6 @@ const main = {
                 this.updateEngineer(node.id)
             }
         })
-/*        window.close();*/
     },
     trClick: function(pjtcode,customer_no,empno,customer_name,project_name){
         $('#pjtcode').val(pjtcode);
